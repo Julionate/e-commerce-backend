@@ -12,10 +12,25 @@ export class CartService {
         idProducto,
         cantidad,
       });
-      console.log(response.data);
       return response.data;
     } catch (error) {
-      console.log(
+      console.error(
+        "Ha ocurrido un error al comunicarse con la base de datos:",
+        error.message
+      );
+    }
+  };
+
+  setCart = async (idUsuario, idProducto, cantidad) => {
+    try {
+      const response = await axios.post(`${this.baseURL}setCart.php`, {
+        idUsuario,
+        idProducto,
+        cantidad,
+      });
+      return response.data;
+    } catch (error) {
+      console.error(
         "Ha ocurrido un error al comunicarse con la base de datos:",
         error.message
       );
@@ -27,10 +42,9 @@ export class CartService {
       const response = await axios.get(`${this.baseURL}GetCart.php`, {
         params: { idUsuario },
       });
-      console.log(response);
       return response.data;
     } catch (error) {
-      console.log(
+      console.error(
         "Ha ocurrido un error al comunicarse con la base de datos:",
         error.message
       );

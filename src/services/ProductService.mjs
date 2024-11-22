@@ -12,7 +12,7 @@ export class ProductService {
       });
       return response.data;
     } catch (error) {
-      console.log(
+      console.error(
         "Ha ocurrido un error al comunicarse con la base de datos:",
         error.message
       );
@@ -26,7 +26,7 @@ export class ProductService {
       });
       return response.data;
     } catch (error) {
-      console.log(
+      console.error(
         "Ha ocurrido un error al comunicarse con la base de datos:",
         error.message
       );
@@ -38,7 +38,7 @@ export class ProductService {
       const response = await axios.get(`${this.baseURL}GetMarcas.php`);
       return response.data;
     } catch (error) {
-      console.log(
+      console.error(
         "Ha ocurrido un error al comunicarse con la base de datos:",
         error.message
       );
@@ -52,7 +52,7 @@ export class ProductService {
       });
       return response.data;
     } catch (error) {
-      console.log(
+      console.error(
         "Ha ocurrido un error al comunicarse con la base de datos:",
         error.message
       );
@@ -66,7 +66,7 @@ export class ProductService {
       });
       return response.data;
     } catch (error) {
-      console.log(
+      console.error(
         "Ha ocurrido un error al comunicarse con la base de datos:",
         error.message
       );
@@ -80,7 +80,7 @@ export class ProductService {
       });
       return response.data;
     } catch (error) {
-      console.log(
+      console.error(
         "Ha ocurrido un error al comunicarse con la base de datos:",
         error.message
       );
@@ -95,10 +95,9 @@ export class ProductService {
         critica,
         valoracion,
       });
-      console.log(response.data);
       return response.data;
     } catch (error) {
-      console.log(
+      console.error(
         "Ha ocurrido un error al comunicarse con la base de datos:",
         error.message
       );

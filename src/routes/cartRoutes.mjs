@@ -7,6 +7,8 @@ CartRouter.get("/get", authenticateToken, CartController.getCart);
 
 CartRouter.post("/add", authenticateToken, CartController.addToCart);
 
+CartRouter.post("/set", authenticateToken, CartController.setCart);
+
 CartRouter.get("/remove", (req, res) =>
   res.status(200).json({ message: "hola2" })
 );

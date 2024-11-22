@@ -10,16 +10,6 @@ export function startPHPServer() {
 
   console.log("Servidor PHP iniciado.");
 
-  // // Capturar la salida estándar
-  // phpServer.stdout.on("data", (data) => {
-  //   console.log(`Salida PHP: ${data}`);
-  // });
-
-  // // Capturar la salida de error
-  // phpServer.stderr.on("data", (data) => {
-  //   console.error(`Error PHP: ${data}`);
-  // });
-
   // Escuchar el evento de interrupción (Ctrl+C)
   process.on("SIGINT", () => {
     console.log("Deteniendo el servidor PHP...");
