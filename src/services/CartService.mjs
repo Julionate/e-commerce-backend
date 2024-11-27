@@ -50,4 +50,26 @@ export class CartService {
       );
     }
   };
+
+  RemoveItem = async (idUsuario, idProducto) => {
+    try {
+      const response = await axios.delete(
+        `${this.baseURL}RemoveItemFromCart.php`,
+        {
+          params: { idUsuario, idProducto },
+        }
+      );
+      console.log(response.data);
+      return response.data;
+    } catch (err) {
+      if (err.response) {
+        console.error("Error del servidor:", err.response.data);
+        return err.response.data;
+      } else if (err.request) {
+        console.error("Error de red:", err.message);
+      } else {
+        console.error("Error al configurar la solicitud:", err.message);
+      }
+    }
+  };
 }

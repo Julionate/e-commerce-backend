@@ -18,5 +18,5 @@ export const registerSchema = z.object({
 export const cartSchema = z.object({
   idUser: z.string(),
   idProduct: z.number().min(1),
-  cantidad: z.number(),
+  cantidad: z.number().optional(),
 });

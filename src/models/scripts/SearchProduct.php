@@ -11,13 +11,15 @@ $page = isset($_GET['page']) ? intval($_GET['page']) : 1;
 $limit = isset($_GET['limit']) ? intval($_GET['limit']) : 10;
 $search = isset($_GET['search']) ? htmlspecialchars($_GET['search']) : '';
 $marcas = isset($_GET['marcas']) ? htmlspecialchars($_GET['marcas']) : ''; // Marcas como una cadena separada por comas
+$min = isset($_GET['min']) ? intval($_GET['min']) : null; 
+$max = isset($_GET['max']) ? intval($_GET['max']) : null;
 
 // Prepara la consulta SQL para llamar al procedimiento almacenado
-$sql = "CALL getProductBeta(?, ?, ?, ?)";
+$sql = "CALL getProductBeta(?, ?, ?, ?, ?, ?)";
 $stmt = $conn->prepare($sql);
 
 // Enlaza los parámetros (página, límite, búsqueda y marcas)
-$stmt->bind_param("iiss", $page, $limit, $search, $marcas); // 'iiss' indica dos enteros y dos cadenas
+$stmt->bind_param("iissii", $page, $limit, $search, $marcas, $min, $max);
 $stmt->execute();
 
 $result = $stmt->get_result(); // Obtén el resultado de la consulta

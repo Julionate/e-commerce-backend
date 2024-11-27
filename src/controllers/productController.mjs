@@ -17,13 +17,15 @@ export class ProductController {
   }
 
   static async SearchProduct(req, res) {
-    const { page, search, marcas } = req.query;
+    const { page, search, marcas, min, max } = req.query;
     try {
       const response = await productService.SearchProduct(
         page,
         undefined,
         search,
-        marcas
+        marcas,
+        min,
+        max
       );
       if (response.length > 0) return res.status(200).json(response);
       res.status(404).json({ message: "No hay más productos" });

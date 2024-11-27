@@ -19,10 +19,17 @@ export class ProductService {
     }
   };
 
-  SearchProduct = async (page = 1, limit = 12, search = "", marcas = "") => {
+  SearchProduct = async (
+    page = 1,
+    limit = 12,
+    search = "",
+    marcas = "",
+    min,
+    max
+  ) => {
     try {
       const response = await axios.get(`${this.baseURL}SearchProduct.php`, {
-        params: { page, limit, search, marcas },
+        params: { page, limit, search, marcas, min, max },
       });
       return response.data;
     } catch (error) {
